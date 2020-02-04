@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Jugador } from '../models/jugador';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JugadorService {
+  url: string;
+  constructor(private httpClient: HttpClient) {
+    this.url = 'http://localhost:5200/';
+  }
 
-  constructor() { }
-
-  getAllJugadores(): Jugador[] {
-    //TODO acceder al api y obtener todos los jugadores
-    //let j1 = new Jugador('1','juan',22);
-    return [
-      { id: '1', nombre: 'Juan', puntuacion: 22 },
-      { id: '2', nombre: 'Pedro', puntuacion: 20 },
-      { id: '3', nombre: 'Ana', puntuacion: 45 },
-    ];
+  getAllJugadores(): Observable<any> {
+    return this.httpClient.get(this.url + 'puntuaciones');
   }
 
   // TODO borrar, insert, update, delete
