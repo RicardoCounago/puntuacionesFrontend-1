@@ -12,7 +12,7 @@ export class AuthService {
     this.url = 'http://localhost:5200/';
   }
 
-  login(email: string, password: string): Observable<any>{
+  login(email: string, password: string): Observable<any> {
     const body = JSON.stringify( {email, password} );
     const headers = new HttpHeaders( {'Content-Type' : 'application/json'} );
     // conectamos al backend y obtenemos el token
@@ -20,6 +20,6 @@ export class AuthService {
   }
 
   logout() {
-
+    localStorage.removeItem('currentUser');
   }
 }

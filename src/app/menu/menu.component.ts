@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
+  }
+  emailRegistrado() {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      //return currentUser.email
+      return JSON.parse(currentUser).email;
+    } else {
+      return 'No estás logueado';
+    }
+  }
+  logout() {
+    this.authService.logout();
   }
 
 }
