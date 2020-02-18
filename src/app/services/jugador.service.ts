@@ -9,12 +9,17 @@ import { Observable } from 'rxjs';
 export class JugadorService {
   url: string;
   constructor(private httpClient: HttpClient) {
-    this.url = 'http://localhost:5200/puntuacion';
+    this.url = 'http://localhost:5200/usuario';
   }
 
   getAllJugadores(): Observable<any> {
-    return this.httpClient.get(this.url + 'usuario');
+    return this.httpClient.get(this.url );
   }
+
+  getJugador(id: string): Observable<any> {
+    return this.httpClient.get(this.url + '/' + id );
+  }
+
 
   addJugador(jugador: Jugador){
     const body = JSON.stringify(jugador);
