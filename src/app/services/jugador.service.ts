@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class JugadorService {
   url: string;
   constructor(private httpClient: HttpClient) {
-    this.url = 'http://localhost:5200/';
+    this.url = 'http://localhost:5200/puntuacion';
   }
 
   getAllJugadores(): Observable<any> {
@@ -19,7 +19,17 @@ export class JugadorService {
   addJugador(jugador: Jugador){
     const body = JSON.stringify(jugador);
     const headers = new HttpHeaders( {'Content-Type' : 'application/json'} );
-    return this.httpClient.post(this.url + 'puntuacion', body, {headers});
+    return this.httpClient.post(this.url, body, {headers});
+  }
+
+  removeJugador(id: string){
+    return this.httpClient.delete(this.url + '/' + id); //DELETE http://localhost:5200/puntuacion/XXXXXX
+  }
+
+  updateJugador(id: string, jugador: Jugador){
+    const body = JSON.stringify(jugador);
+    const headers = new HttpHeaders( {'Content-Type' : 'application/json'} );
+    return this.httpClient.put(this.url + '/' + id, body, {headers}); // PUT http://localhost:5200/puntuacion/xxxxxx
   }
 
   // TODO borrar, insert, update, delete
