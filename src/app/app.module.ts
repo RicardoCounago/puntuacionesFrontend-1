@@ -11,6 +11,9 @@ import { MenuComponent } from './menu/menu.component';
 import { EditJugadorComponent } from './edit-jugador/edit-jugador.component';
 import { LoginComponent } from './login/login.component';
 import { GestionPuntuacionesComponent } from './gestion-puntuaciones/gestion-puntuaciones.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { GestionPuntuacionesComponent } from './gestion-puntuaciones/gestion-pun
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
