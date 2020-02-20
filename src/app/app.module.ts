@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { EditJugadorComponent } from './edit-jugador/edit-jugador.component';
 import { LoginComponent } from './login/login.component';
+import { GestionPuntuacionesComponent } from './gestion-puntuaciones/gestion-puntuaciones.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     AddJugadorComponent,
     MenuComponent,
     LoginComponent,
-    EditJugadorComponent
+    EditJugadorComponent,
+    GestionPuntuacionesComponent
   ],
   imports: [
     BrowserModule,

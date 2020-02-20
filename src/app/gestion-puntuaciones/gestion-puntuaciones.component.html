@@ -1,0 +1,10 @@
+<!-- Lidatos de puntuaciones del usuario -->
+<ul>
+  <li *ngFor="let p of listaPuntuaciones">
+    {{p.valor}}
+    <span (click)="borrarPuntuacion(p._id)">X</span>
+  </li>
+</ul>
+<!-- Formulario para guardar la puntuacion-->
+<input #valorPuntuacion type="text">
+<button (click)="addPuntuacion(valorPuntuacion.value)">Guardar</button>
